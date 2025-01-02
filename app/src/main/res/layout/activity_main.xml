@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:background="@drawable/layered_background"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:alpha="0.89"
+    tools:context=".MainActivity">
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/bmiBackgroundAnimation"
+        android:layout_width="400dp"
+        android:layout_height="400dp"
+        app:lottie_rawRes="@raw/heartbeat"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:layout_constraintTop_toBottomOf="@id/answer"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"
+        />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="34dp"
+        android:background="@drawable/bmi_calculator"
+        android:text="BMI Calculator"
+        android:paddingHorizontal="93dp"
+        android:paddingVertical="12dp"
+        android:textColor="@color/white"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <LinearLayout
+        android:id="@+id/genderSelectionLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/maleButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/gender_button"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="12dp"
+            android:text=" ⚦ Male"
+            android:layout_marginEnd="10dp"
+            android:textColor="@color/white"
+            android:textSize="22dp"
+            android:textStyle="bold" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/femaleButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/gender_button"
+            android:paddingHorizontal="12dp"
+            android:paddingVertical="12dp"
+            android:layout_marginEnd="10dp"
+            android:text="♀ Female"
+            android:textColor="@color/white"
+            android:textSize="22dp"
+            android:textStyle="bold"
+            tools:layout_editor_absoluteX="152dp"
+            tools:layout_editor_absoluteY="136dp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/otherButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/gender_button"
+            android:paddingHorizontal="12dp"
+            android:paddingVertical="12dp"
+            android:text=" ⚥ Other"
+            android:textColor="@color/white"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            tools:layout_editor_absoluteX="253dp"
+            tools:layout_editor_absoluteY="136dp" />
+
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/weight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="128dp"
+        android:layout_marginLeft="34dp"
+        android:background="@drawable/border_weight"
+        android:padding="15dp"
+        android:text="Weight (KG) :"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/weightValue"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title" />
+
+    <TextView
+        android:id="@+id/weightValue"
+        android:layout_width="60dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="110dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/value_box_background"
+        android:gravity="center"
+        android:text="00"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintLeft_toRightOf="@id/weight"
+        app:layout_constraintTop_toTopOf="@id/weight" />
+
+    <View
+        android:id="@+id/weightUnderline"
+        android:layout_width="55dp"
+        android:layout_height="2dp"
+        android:layout_marginTop="4dp"
+        android:background="#fcb045"
+        app:layout_constraintTop_toBottomOf="@id/weightValue"
+        app:layout_constraintStart_toStartOf="@id/weightValue"
+        app:layout_constraintEnd_toEndOf="@id/weightValue" />
+
+    <com.google.android.material.slider.Slider
+        android:id="@+id/weightSlider"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="8dp"
+        android:alpha="0.6"
+        android:stepSize="1"
+        android:valueFrom="1"
+        android:valueTo="200"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toEndOf="@id/weight"
+        app:layout_constraintTop_toBottomOf="@id/weight"
+        app:thumbColor="#ff0000"
+        app:thumbRadius="20dp"
+        app:trackColor="#fcb045"
+        app:trackHeight="15dp"
+        tools:value="170" />
+
+
+    <TextView
+        android:id="@+id/height"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginRight="203dp"
+        android:layout_marginLeft="34dp"
+        android:background="@drawable/border_weight"
+        android:padding="15dp"
+        android:text="Height (cm) :"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/weightSlider"
+        app:layout_constraintRight_toLeftOf="@id/heightValue" />
+
+    <TextView
+        android:id="@+id/heightValue"
+        android:layout_width="60dp"
+        android:layout_height="40dp"
+        android:gravity="center"
+        android:layout_marginStart="110dp"
+        android:layout_marginTop="10dp"
+        android:text="00"
+        android:background="@drawable/value_box_background"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintLeft_toRightOf="@id/height"
+        app:layout_constraintTop_toTopOf="@id/height" />
+
+    <View
+        android:id="@+id/heightUnderline"
+        android:layout_width="55dp"
+        android:layout_height="2dp"
+        android:layout_marginTop="4dp"
+        android:background="#fcb045"
+        app:layout_constraintTop_toBottomOf="@id/heightValue"
+        app:layout_constraintStart_toStartOf="@id/heightValue"
+        app:layout_constraintEnd_toEndOf="@id/heightValue" />
+
+    <com.google.android.material.slider.Slider
+        android:id="@+id/heightSlider"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="10dp"
+        android:stepSize="1"
+        android:valueFrom="50"
+        android:valueTo="250"
+        app:trackColor="#fcb045"
+        android:alpha="0.6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.6"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/height"
+
+        app:layout_constraintStart_toEndOf="@id/height"
+        app:thumbColor="#ff0000"
+        app:thumbRadius="20dp"
+        app:trackHeight="15dp"
+        tools:value="170"
+       />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/calcButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="42dp"
+        android:background="@drawable/calculate_bmi"
+        android:paddingHorizontal="25dp"
+        android:paddingVertical="15dp"
+        android:text="Calculate BMI"
+        android:textAllCaps="false"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:textSize="22sp"
+        android:elevation="1dp"
+        app:layout_constraintHorizontal_bias="0.486"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/heightSlider" />
+
+    <TextView
+        android:id="@+id/answer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="BMI SCORE"
+        android:paddingHorizontal="40dp"
+        android:layout_marginTop="50dp"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        android:background="@drawable/bmi_score"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/calcButton"
+        android:alpha="0.9"/>
+
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+        android:id="@+id/healthTip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="11dp"
+        android:textStyle="bold"
+        android:background="@drawable/value_box_background"
+        android:text="Health Tip will appear here"
+        android:textColor="@color/white"
+        android:textSize="12sp"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/answer"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="595dp"
+        android:layout_marginLeft="60dp"
+        />
+    </LinearLayout>
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/bmiAnimation"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="20dp"
+        android:visibility="gone"
+        app:lottie_rawRes="@raw/animation"
+        app:lottie_autoPlay="false"
+        app:lottie_loop="true"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:scaleType="centerCrop"
+        android:elevation="5dp"
+        />
+    <ImageButton
+        android:id="@+id/playTtsButton"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/tts_button_background"
+        android:contentDescription="Play BMI and Health Tip"
+        android:src="@drawable/ic_play_arrow"
+        app:layout_constraintTop_toBottomOf="@id/answer"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="12dp"
+        app:layout_constraintStart_toEndOf="@id/answer"
+        android:scaleType="centerInside"
+        android:elevation="4dp"
+        android:alpha="0.8"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

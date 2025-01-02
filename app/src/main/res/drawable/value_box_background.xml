@@ -1,0 +1,12 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="#fcb045" /> <!-- Match the color used in your layout -->
+    <corners android:radius="8dp" /> <!-- Rounded corners -->
+    <stroke
+        android:width="1dp"
+        android:color="#000000" /> <!-- White border -->
+    <gradient
+        android:startColor="#fd1d1d"
+        android:endColor="#fcb045"
+        />
+
+</shape>

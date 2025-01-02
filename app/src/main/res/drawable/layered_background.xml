@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+        <!-- Background image layer -->     <item android:drawable="@drawable/img2"/>
+
+
+        <!-- Border layer -->
+        <item>
+            <shape>
+                <solid android:color="@android:color/transparent" /> <!-- Transparent inside -->
+
+                <stroke
+                    android:width="4dp"
+                    android:color="#fd1d1d"
+                android:radius="8dp"  />
+                <gradient
+                    android:startColor="#fd1d1d"
+                    android:endColor="#fcb045"
+                    />
+
+            </shape>
+        </item>
+    </layer-list>
+
